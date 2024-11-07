@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=ABeeZee");
+
+$green: #1DB954;
+$black: #141414;
+$lwhite: #f1f0f0;
+$gray: #2c3640;
+$yellow: #FFD600;
+
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+  
+body{
+    font-family: 'ABeeZee', Arial, Helvetica, sans-serif;
+    background-color: $gray;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App {
+    #quote-box {
+        background-color: $black;
+        border-radius: 10px;
+        z-index: 1;
+        padding: 30px;
+        width: 550px;
+        box-shadow: 0px 0px 4px 4px $green;
+        h1{color: $green; text-align: center; margin-bottom: 40px;}
+        #text {text-align: center; margin-bottom: 30px; font-size: 24px;}
+        .animate {
+            transition: opacity 0.5s, transform 0.5s;
+          }
+        .animate.preEnter,
+        .animate.exiting {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        .animate.exited {
+            display: none;
+        }
+        #text::before{
+            content: '"';
+            font-size: 40px;
+        }
+        #author{text-align: right; margin-bottom: 30px;}
+        #author::before{content: '~ ';}
+        #tweet_newquote {
+            display: block;
+            margin-bottom: 80px;
+            #tweet-box:hover , #new-quote:hover {
+                opacity: 0.8;
+            }
+            #tweet-box {
+                height: 40px; 
+                width: 40px;
+                background-color: $green;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                float: left;
+                cursor: pointer;
+                img{height: 25px; width: 25px;}
+            }
+            #new-quote {
+                background-color: $green;
+                height: 40px; 
+                padding: 10px;
+                border-radius: 5px;
+                float: right;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #quote-box {
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
